@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section id="content">
+{% block content_title %}
+    <div>All articles</div>
+{% endblock %}
+
+{% from 'macros.html' import articles_list_3 %}
+{{ articles_list_3(articles_page.object_list) }}
+
+
+{% include 'pagination.html' %}
+</section><!-- /#content -->
+{% endblock content %}

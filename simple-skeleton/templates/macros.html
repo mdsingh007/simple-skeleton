@@ -1,0 +1,23 @@
+
+{% macro articles_list_3(articles) %}
+
+{% for article_group in articles | batch(3) -%}
+    <div class="row">        
+    {%- for article in article_group -%}
+        <div class="one-third column value">
+            <header> 
+                <h5>
+                    <a href="{{ SITEURL }}/{{ article.url }}" 
+                        rel="bookmark" 
+                        title="Permalink to {{ article.title|striptags }}" class='nodecoration'>
+                        {{ article.title }}
+                    </a>
+                </h5> 
+                <div class="entry-content"> {{ article.summary }} </div>
+            </header>
+        </div>
+    {%- endfor -%}
+    </div>
+{%- endfor %}
+
+{% endmacro %}
